@@ -1,19 +1,12 @@
 #include "monty.h"
 
+/**
+ * noOfNodes - to count the number of nodes in stack
+ * @h: stack
+ * Return: count
+ */
 int noOfNodes(stack_t **h)
 {
-/*	int count;
-
-	count = 0;
-	if (h == NULL)
-		return (0);
-	while (h)
-	{
-		count++;
-		h = h->next;
-	}
-	return (count);*/
-
 	stack_t *temp;
 	int n; /* counter for number of elements */
 
@@ -26,4 +19,21 @@ int noOfNodes(stack_t **h)
 	}
 
 	return (n);
+}
+
+/**
+ * freeStack - frees the stack
+ * @stack: stack to be freed
+ * Return: void
+ */
+void freeStack(stack_t **stack)
+{
+	stack_t *temp;
+
+	while (*stack != NULL)
+	{
+		temp = *stack;
+		*stack = (*stack)->next;
+		free(temp);
+	}
 }

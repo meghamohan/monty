@@ -1,13 +1,18 @@
 #include "monty.h"
 
+/**
+ * printAll - function that prints all integers in the stack
+ * @head: pointer to head node of the stack
+ * @line_number: line number of the file
+ * Return: nothing
+ */
 void printAll(stack_t **head, unsigned int __attribute__((unused))line_number)
 {
-        stack_t *h;
+	stack_t *h;
 
-	printf("reached pall\n");
 	if (*head == NULL)
 		printf("head is null\n");
-        h = *head;
+	h = *head;
 	while (h)
 	{
 		printf("%d\n", h->n);
@@ -16,6 +21,14 @@ void printAll(stack_t **head, unsigned int __attribute__((unused))line_number)
 
 }
 
+
+/**
+ * printFirst -  prints the value at the top of the stack,
+ * followed by a new line.
+ * @h: pointer to head node of the stack
+ * @line_number: line number of the file
+ * Return: nothing
+ */
 void printFirst(stack_t **h, unsigned int line_number)
 {
 	if (h == NULL || *h == NULL)
@@ -27,6 +40,13 @@ void printFirst(stack_t **h, unsigned int line_number)
 		printf("%d\n", (*h)->n);
 }
 
+
+/**
+ * popNode - remove item at the top of stack
+ * @head: pointer to head node of the stack
+ * @line_number: line number of the file
+ * Return: nothing
+ */
 void popNode(stack_t **head, unsigned int line_number)
 {
 	stack_t *temp;
@@ -41,6 +61,13 @@ void popNode(stack_t **head, unsigned int line_number)
 	free(temp);
 }
 
+
+/**
+ * swapNode - swaps the top two elements of the stack.
+ * @h: pointer to head node of the stack
+ * @line_number: line number of the file
+ * Return: nothing
+ */
 void swapNode(stack_t **h, unsigned int line_number)
 {
 	stack_t *tmp;
@@ -60,6 +87,12 @@ void swapNode(stack_t **h, unsigned int line_number)
 	(tmp->next)->prev = tmp;
 }
 
+/**
+ * addFirst - adds the top two elements of the stack
+ * @h: pointer to head node of the stack
+ * @line_number: line number of the file
+ * Return: nothing
+ */
 void addFirst(stack_t **h, unsigned int line_number)
 {
 	stack_t *tmp;
@@ -75,9 +108,4 @@ void addFirst(stack_t **h, unsigned int line_number)
 	tmp->n = sum;
 	popNode(h, line_number);
 
-}
-
-void nopNode(stack_t **h, __attribute__((unused)) unsigned int line_number)
-{
-	(void)h;
 }

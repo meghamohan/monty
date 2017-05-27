@@ -39,7 +39,7 @@ typedef struct instruction_s
 } instruction_t;
 
 
-void pushNode(stack_t **h, unsigned int line_number);
+/*void pushNode(stack_t **h, unsigned int line_number);*/
 void printAll(stack_t **h, unsigned int line_number);
 void printFirst(stack_t **h, unsigned int line_number);
 void popNode(stack_t **h, unsigned int line_number);
@@ -52,9 +52,10 @@ void divNode(stack_t **h, unsigned int line_number);
 void modNode(stack_t **h, unsigned int line_number);
 
 
+int pushNode(stack_t **head, int n);
 int noOfNodes(stack_t **h);
-int push_node(stack_t **head, int n);
 int checkIfPush(char *tokens, stack_t **stck, int line_number);
 int checkIfOpcode(char *tokens, stack_t **stck, int line_number);
-
+void freeStack(stack_t **stack);
+void errorCheck(int argc, char **argv);
 #endif
