@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -45,5 +46,15 @@ void popNode(stack_t **h, unsigned int line_number);
 void swapNode(stack_t **h, unsigned int line_number);
 void addFirst(stack_t **h, unsigned int line_number);
 void nopNode(stack_t **h, unsigned int line_number);
+void subNode(stack_t **h, unsigned int line_number);
+void mulNode(stack_t **h, unsigned int line_number);
+void divNode(stack_t **h, unsigned int line_number);
+void modNode(stack_t **h, unsigned int line_number);
+
+
+int noOfNodes(stack_t **h);
+int push_node(stack_t **head, int n);
+int checkIfPush(char *tokens, stack_t **stck, int line_number);
+int checkIfOpcode(char *tokens, stack_t **stck, int line_number);
 
 #endif
