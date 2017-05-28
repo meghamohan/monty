@@ -20,8 +20,7 @@ void subNode(stack_t **h, unsigned int line_number)
 
 	a = (*h)->n;
 	b = (*h)->next->n;
-
-	result = a - b;
+	result = b - a;
 	popNode(h, line_number);
 	(*h)->n = result;
 }
