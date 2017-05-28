@@ -10,15 +10,14 @@ void printAll(stack_t **head, unsigned int __attribute__((unused))line_number)
 {
 	stack_t *h;
 
-	if (*head == NULL)
-		printf("head is null\n");
+	if (*head == NULL || head == NULL)
+		return;
 	h = *head;
 	while (h)
 	{
 		printf("%d\n", h->n);
 		h = h->next;
 	}
-
 }
 
 

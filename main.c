@@ -22,8 +22,6 @@ int checkIfPush(char *tokens, stack_t **stck, int line_number)
 			exit(EXIT_FAILURE);
 		}
 	}
-	if (!stck)
-		printf("head null from checkifPush\n");
 	if (pushNode(stck, atoi(tokens)))
 	{
 		return (1);
