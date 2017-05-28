@@ -15,7 +15,7 @@ void subNode(stack_t **h, unsigned int line_number)
 	if (noOfNodes(h) < 2 || h == NULL)
 	{
 		printf("L%d: can't sub, stack too short\n", line_number);
-		return;
+		exit(EXIT_FAILURE);
 	}
 
 	a = (*h)->n;
@@ -42,8 +42,7 @@ void mulNode(stack_t **h, unsigned int line_number)
 	if (noOfNodes(h) < 2 || h == NULL)
 	{
 		printf("L%d: can't mul, stack too short\n", line_number);
-		printf("error in mul\n");
-		return;
+		exit(EXIT_FAILURE);
 	}
 
 	a = (*h)->n;
@@ -71,12 +70,16 @@ void divNode(stack_t **h, unsigned int line_number)
 	if (noOfNodes(h) < 2)
 	{
 		printf("L%d: can't div, stack too short\n", line_number);
-		return;
+		exit(EXIT_FAILURE);
 	}
 
 	a = (*h)->n;
 	b = (*h)->next->n;
-
+	if (!b)
+	{
+		printf("L%d: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	result = a / b;
 	popNode(h, line_number);
 	(*h)->n = result;
@@ -100,7 +103,7 @@ void modNode(stack_t **h, unsigned int line_number)
 	if (noOfNodes(h) < 2)
 	{
 		printf("L%d: can't mod, stack too short\n", line_number);
-		return;
+		exit(EXIT_FAILURE);
 	}
 
 	a = (*h)->n;

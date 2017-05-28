@@ -112,7 +112,6 @@ int main(int argc, char **argv)
 	{
 		flag = 0;
 		line_number++;
-
 		tokens = strtok(line, " \t\n");
 		while (tokens && !flag)
 		{
@@ -122,15 +121,15 @@ int main(int argc, char **argv)
 				if (checkIfPush(tokens, &stck, line_number))
 					flag = 1;
 			}
+			else if (checkIfOpcode(tokens, &stck, line_number))
+				flag = 1;
 			else
 			{
-				if (checkIfOpcode(tokens, &stck, line_number))
-					flag = 1;
-
+				printf("L%d: unknown instruction %s\n", line_number, tokens);
+				exit(EXIT_FAILURE);
 			}
 			tokens = strtok(NULL, " \t\n");
 		}
 	}
-	free(line); freeStack(&stck); fclose(source);
-	return (0);
+	free(line); freeStack(&stck); fclose(source); return (0);
 }

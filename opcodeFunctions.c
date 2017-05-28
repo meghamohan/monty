@@ -33,7 +33,7 @@ void printFirst(stack_t **h, unsigned int line_number)
 	if (h == NULL || *h == NULL)
 	{
 		printf("L%u: can't pint, stack empty\n", line_number);
-		return;
+		exit(EXIT_FAILURE);
 	}
 	else
 		printf("%d\n", (*h)->n);
@@ -53,7 +53,7 @@ void popNode(stack_t **head, unsigned int line_number)
 	if (head == NULL || *head == NULL)
 	{
 		printf("L%u: can't pop an empty stack\n", line_number);
-		return;
+		exit(EXIT_FAILURE);
 	}
 	temp = *head;
 	*head = temp->next;
@@ -74,7 +74,7 @@ void swapNode(stack_t **h, unsigned int line_number)
 	if (noOfNodes(h) < 2)
 	{
 		printf("L%u: can't swap, stack too short\n", line_number);
-		return;
+		exit(EXIT_FAILURE);
 	}
 
 	tmp = *h;
@@ -100,7 +100,7 @@ void addFirst(stack_t **h, unsigned int line_number)
 	if (noOfNodes(h) < 2)
 	{
 		printf("L%u: can't add, stack too short\n", line_number);
-		return;
+		exit(EXIT_FAILURE);
 	}
 	tmp = (*h)->next;
 	sum = (*h)->n + tmp->n;
