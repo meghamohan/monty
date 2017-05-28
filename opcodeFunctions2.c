@@ -46,7 +46,6 @@ void mulNode(stack_t **h, unsigned int line_number)
 
 	a = (*h)->n;
 	b = (*h)->next->n;
-
 	result = a * b;
 	popNode(h, line_number);
 	(*h)->n = result;
@@ -95,9 +94,7 @@ void divNode(stack_t **h, unsigned int line_number)
  */
 void modNode(stack_t **h, unsigned int line_number)
 {
-	int a;
-	int b;
-	int result;
+	int a, b, result;
 
 	if (noOfNodes(h) < 2)
 	{
@@ -107,8 +104,12 @@ void modNode(stack_t **h, unsigned int line_number)
 
 	a = (*h)->n;
 	b = (*h)->next->n;
-
-	result = a % b;
+	if (!a)
+	{
+		printf("L%d: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	result = b % a;
 	popNode(h, line_number);
 	(*h)->n = result;
 }
