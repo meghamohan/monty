@@ -69,21 +69,17 @@ void popNode(stack_t **head, unsigned int line_number)
  */
 void swapNode(stack_t **h, unsigned int line_number)
 {
-	stack_t *tmp;
+	int n1, n2;
 
 	if (noOfNodes(h) < 2)
 	{
 		printf("L%u: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-
-	tmp = *h;
-	*h = tmp->next;
-	tmp->next = (*h)->next;
-	(*h)->next = tmp;
-	tmp->prev = *h;
-	(*h)->prev = NULL;
-	(tmp->next)->prev = tmp;
+	n1 = (*h)->n;
+	n2 = (*h)->next->n;
+	(*h)->n = n2;
+	(*h)->next->n = n1;
 }
 
 /**
