@@ -74,12 +74,12 @@ void divNode(stack_t **h, unsigned int line_number)
 
 	a = (*h)->n;
 	b = (*h)->next->n;
-	if (!b)
+	if (!a)
 	{
 		printf("L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	result = a / b;
+	result = b / a;
 	popNode(h, line_number);
 	(*h)->n = result;
 }
