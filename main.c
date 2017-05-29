@@ -12,6 +12,11 @@ int checkIfPush(char *tokens, stack_t **stck, int line_number)
 {
 	int i;
 
+	if (!tokens)
+	{
+		printf("L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	for (i = 0; tokens[i] != '\0'; i++)
 	{
 		if (tokens[0] == '-' && i == 0)
@@ -116,6 +121,8 @@ int main(int argc, char **argv)
 		tokens = strtok(line, " \t\n");
 		while (tokens && !flag)
 		{
+			if (!tokens || !(strncmp(tokens, "#", 1)))
+				continue;
 			if (!strcmp(tokens, "push"))
 			{
 				tokens = strtok(NULL, " \t\n");
