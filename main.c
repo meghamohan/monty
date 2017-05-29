@@ -122,7 +122,7 @@ int main(int argc, char **argv)
 		while (tokens && !flag)
 		{
 			if (!tokens || !(strncmp(tokens, "#", 1)))
-				continue;
+				break;
 			if (!strcmp(tokens, "push"))
 			{
 				tokens = strtok(NULL, " \t\n");
