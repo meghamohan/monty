@@ -33,3 +33,33 @@ int pushNode(stack_t **head, int n)
 	*head = new_node;
 	return (1);
 }
+
+/**
+ * pchar - function to prints the char at the top of the stack,
+ * followed by a new line
+ * @head: pointer to head node of the stack
+ * @line_number: line number of the file
+ */
+void pchar(stack_t **head, unsigned int line_number)
+{
+	if (*head)
+	{
+		if ((((*head)->n) < 0) || (((*head)->n) > 127))
+		{
+			printf("L%d: can't pchar, value out of range\n",
+			       line_number);
+			exit(EXIT_FAILURE);
+		}
+		else
+		{
+			putchar((*head)->n);
+			putchar('\n');
+		}
+	}
+	else
+	{
+		printf("L%d: can't pchar, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+}
+

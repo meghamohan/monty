@@ -50,7 +50,7 @@ void subNode(stack_t **h, unsigned int line_number);
 void mulNode(stack_t **h, unsigned int line_number);
 void divNode(stack_t **h, unsigned int line_number);
 void modNode(stack_t **h, unsigned int line_number);
-
+void pchar(stack_t **head, unsigned int line_number);
 
 int pushNode(stack_t **head, int n);
 int noOfNodes(stack_t **h);

@@ -51,6 +51,7 @@ int checkIfOpcode(char *tokens, stack_t **stck, int line_number)
 		{"mul", mulNode},
 		{"div", divNode},
 		{"mod", modNode},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 	while ((opcodes + i)->opcode)
